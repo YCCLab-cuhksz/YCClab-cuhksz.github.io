@@ -1,0 +1,651 @@
+/* Start Variables */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #2c4755;
+  --section-padding: 60px;
+  --section-background: #f6f6f6;
+  --main-duration: 0.5s;
+}
+/* End Variables */
+
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px; /* 基础字体大小 */
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+
+/* Start Components */
+.special-heading {
+  color: #2c4755; /* 主标题颜色 */
+  font-size: 40px; /* 主标题字体大小 */
+  text-align: center;
+  font-weight: 700; /* 主标题粗细 */
+  margin-bottom: 40px; /* 主标题下方间距 */
+}
+.special-heading + p {
+  margin: -30px 0 0;
+  font-size: 20px;
+  text-align: center;
+  color: #797979;
+}
+@media (max-width: 767px) {
+  .special-heading {
+    font-size: 30px;
+  }
+  .special-heading + p {
+    margin-top: -20px;
+  }
+}
+/* End Components */
+
+/* Start Header */
+.header {
+  padding: 20px;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  width: 60px;
+}
+.header .links {
+  position: relative;
+}
+.header .links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+.header .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.header .links .icon span {
+  background-color: #333;
+  margin-bottom: 5px;
+  height: 2px;
+}
+.header .links .icon span:first-child {
+  width: 100%;
+}
+.header .links .icon span:nth-child(2) {
+  width: 60%;
+  transition: var(--main-duration);
+}
+.header .links .icon span:last-child {
+  width: 100%;
+}
+.header .links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 让链接水平排列 */
+  background-color: transparent; /* 移除背景色 */
+  position: static; /* 静态位置 */
+}
+.header .links ul::before {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #f6f6f6 transparent;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
+.header .links ul li {
+  margin-right: 20px; /* 让链接之间有一定的间距 */
+}
+.header .links ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: var(--main-duration);
+}
+.header .links ul li a:hover {
+  color: var(--main-color); /* 悬停时更改文字颜色 */
+}
+.header .links ul li a:hover {
+  padding-left: 25px;
+}
+.header .links ul li:not(:last-child) a {
+  border-bottom: 1px solid #ddd;
+}
+/* End Header */
+
+
+/* Start Landing Section */
+.landing {
+  background-image: url(../images/back.jpg);
+  background-size: cover;
+  height: calc(100vh - 64px);
+  position: relative;
+}
+
+/* 添加一个半透明的白色覆盖层，使背景变浅 */
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6); /* 调整透明度使背景变浅 */
+  z-index: 1;
+}
+
+.landing .intro-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  max-width: 100%;
+  z-index: 2; /* 确保文字在覆盖层之上 */
+}
+
+.landing .intro-text h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 70px; /* 增大标题字体 */
+  color: var(--secondary-color); /* 调整为与其他部分一致的颜色 */
+}
+
+.landing .intro-text p {
+  font-size: 20px; /* 增大内容字体 */
+  line-height: 2;
+  z-index: 2;
+}
+
+/* Start Features (Research Interests Section) */
+.features {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: white; /* 将背景改为白色 */
+}
+.features .container {
+  max-width: 1000px; /* 限制容器宽度以改善布局 */
+  margin: 0 auto;
+}
+.special-heading {
+  color: var(--secondary-color); /* 改变标题颜色以增强可读性 */
+  font-size: 40px; /* 保持较大的标题字体 */
+  text-align: center;
+  font-weight: 700; /* 调整字体粗细 */
+  margin-bottom: 40px; /* 增加标题与内容的间距 */
+}
+.features-content {
+  display: flex;
+  flex-direction: column; /* 改为垂直布局 */
+  gap: 30px; /* 增加内容块之间的间距 */
+}
+.feat {
+  background-color: white; /* 保持块内的背景为白色 */
+  padding: 20px;
+  border-radius: 10px; /* 增加圆角 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 增加阴影 */
+}
+.feat h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--main-color); /* 改变标题颜色以增强对比 */
+}
+.feat p {
+  line-height: 1.8;
+  color: #444;
+  font-size: 18px; /* 可选择增大字体 */
+}
+/* End Features */
+
+
+
+
+
+
+/* Start Services */
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.services .services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  margin-top: 100px;
+}
+.services .services-content .srv {
+  display: flex;
+  margin-bottom: 40px;
+}
+@media (max-width: 767px) {
+  .services .services-content .srv {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.services .services-content .srv i {
+  color: var(--main-color);
+  flex-basis: 60px;
+}
+.services .services-content .srv .text {
+  flex: 1;
+}
+.services .services-content .srv .text h3 {
+  margin: 0 0 20px;
+}
+.services .services-content .srv .text p {
+  color: #444;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.services .services-content .image {
+  text-align: center;
+  position: relative;
+}
+.services .services-content .image::before {
+  content: "";
+  background-color: var(--secondary-color);
+  width: 100px;
+  height: calc(100% + 100px);
+  top: -50px;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+.services .services-content .image img {
+  width: 260px;
+}
+@media (max-width: 1199px) {
+  .image-column {
+    display: none;
+  }
+}
+/* Start Services  */
+
+/* Start Portfolio */
+/*.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
+}
+.portfolio .portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  margin-top: 80px;
+}
+.portfolio .portfolio-content .card {
+  background-color: white;
+}
+.portfolio .portfolio-content .card img {
+  max-width: 100%;
+}
+.portfolio .portfolio-content .card .info {
+  padding: 20px;
+}
+.portfolio .portfolio-content .card .info h3 {
+  margin: 0;
+}
+.portfolio .portfolio-content .card .info p {
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+/* End Portfolio */
+
+
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* 内容居中显示 */
+    background-color: #f6f6f6; /* 背景设为浅灰色 */
+    padding: 40px 20px; /* 上下填充40px，两边填充20px */
+    min-height: 100vh; /* 确保内容居中对齐 */
+}
+
+/* 限制容器宽度，使两边留出更多空白 */
+.profile-info, .publications {
+    width: 100%;
+    max-width: 800px; /* 设置最大宽度为800px */
+    margin: 0 auto; /* 自动水平居中 */
+}
+
+/* 个人信息标题 */
+.profile-container h2 {
+    font-size: 28px; /* 标题字体大小 */
+    color: var(--secondary-color); /* 使用与其他部分一致的颜色 */
+    margin-bottom: 30px;
+}
+
+/* 个人信息 */
+.profile-info h3 {
+    font-size: 20px; /* 与Members部分一致 */
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 18px; /* 与Members部分一致 */
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Publications 部分 */
+.publications h3 {
+    font-size: 24px; /* 标题字体大小 */
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.publications ul {
+    list-style-type: disc;
+    padding-left: 20px; /* 缩小左边距，减少过宽的感觉 */
+}
+
+.publications li {
+    font-size: 18px; /* 与Members部分一致 */
+    color: #444;
+    margin-bottom: 15px;
+    text-align: left; /* 列表项左对齐 */
+}
+
+/* 链接样式 */
+.publications a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.publications a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start About */
+.about {
+  padding-top: var(--section-padding);
+  padding-bottom: calc(var(--section-padding) + 60px);
+}
+.about .about-content {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (max-width: 991px) {
+  .about .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.about .about-content .image {
+  position: relative;
+  width: 250px;
+  height: 375px;
+}
+@media (max-width: 991px) {
+  .about .about-content .image {
+    margin: 0 auto 60px;
+  }
+}
+.about .about-content .image::before {
+  content: "";
+  position: absolute;
+  background-color: #ebeced;
+  width: 100px;
+  height: calc(100% + 80px);
+  top: -40px;
+  left: -20px;
+  z-index: -1;
+}
+.about .about-content .image::after {
+  top: -40px;
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 300px;
+  border-left: 80px solid var(--main-color);
+  border-bottom: 80px solid var(--main-color);
+  z-index: -1;
+  right: -150px;
+}
+@media (max-width: 991px) {
+  .about .about-content .image::before,
+  .about .about-content .image::after {
+    display: none;
+  }
+}
+.about .about-content .image img {
+  max-width: 100%;
+}
+.about .about-content .text {
+  flex-basis: calc(100% - 500px);
+}
+.about .about-content .text p:first-of-type {
+  font-weight: bold;
+  line-height: 2;
+  margin-bottom: 50px;
+}
+.about .about-content .text hr {
+  width: 50%;
+  display: inline-block;
+  border-color: var(--main-color);
+}
+.about .about-content .text p:last-of-type {
+  line-height: 2;
+  color: #777;
+}
+/* End About */
+
+/* Start Contact */
+.contact {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
+}
+.contact .info {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  text-align: center;
+}
+.contact .info .label {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+}
+.contact .info .link {
+  display: block;
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--main-color);
+  text-decoration: none;
+}
+.contact .info .social {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 18px; /* 增大字体大小 */
+}
+.contact .info .social i {
+  margin-left: 10px;
+  color: var(--secondary-color);
+}
+@media (max-width: 767px) {
+  .contact .info .label,
+  .contact .info .link {
+    font-size: 25px;
+  }
+  .contact .info .social {
+    font-size: 16px;
+  }
+}
+/* End Contact */
+
+/* Start Footer */
+.footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 18px;
+}
+.footer span {
+  font-weight: bold;
+  color: var(--main-color);
+}
+/* End Footer */
+
+
+
+/* Custom styles for adjusting section heights */
+.news {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #f6f6f6;
+}
+
+.members {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #ffffff;
+}
+
+.members-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 使成员在行内居中排列 */
+    gap: 20px; /* 增加成员之间的间距 */
+}
+
+.member {
+    text-align: center;
+    margin-bottom: 30px;
+    width: calc(25% - 20px); /* 固定每个成员卡片的宽度，使每行显示四个 */
+    box-sizing: border-box; /* 确保padding和border不会影响宽度计算 */
+}
+
+.member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.member h3 {
+    font-size: 20px; /* 增大成员名字的字体大小 */
+    font-weight: bold;
+}
+
+.member p {
+    font-size: 18px; /* 增大成员职位的字体大小 */
+    margin-bottom: 10px;
+    max-width: 100%; /* 保证文字不会超出卡片宽度 */
+    word-wrap: break-word; /* 保证单词在达到最大宽度时换行 */
+}
+
+.member a {
+    font-size: 18px; /* 增大链接的字体大小 */
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.member a:hover {
+    text-decoration: underline;
+}
+
+/* Specific styling for Ying-Chih Chiang to occupy full width */
+.full-width-member {
+    flex-basis: 100%; /* 占据整行 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px; /* 增加与下一行成员的间距 */
+}
+
+.full-width-member img {
+    width: 200px; /* 调整图片大小 */
+    height: 200px; /* 调整图片大小 */
+}
+
+/* Additional styles for News section to increase font size */
+.news ul {
+    font-size: 18px; /* 增大字体大小 */
+    line-height: 1.8; /* 增加行高以提高可读性 */
+    list-style-type: none; /* 移除默认列表样式 */
+    padding: 0;
+}
+.news ul li {
+    margin-bottom: 15px; /* 增加列表项之间的间距 */
+}
+.news ul li strong {
+    color: var(--secondary-color); /* 使日期更突出 */
+}
+.news ul li::before {
+    content: "• "; /* 添加项目符号 */
+    color: var(--main-color);
+}
+@media (max-width: 767px) {
+    .news ul {
+        font-size: 16px; /* 移动设备上稍微减小字体大小 */
+    }
+    .news ul li {
+        margin-bottom: 10px; /* 移动设备上减少列表项间距 */
+    }
+}
+
+
+
